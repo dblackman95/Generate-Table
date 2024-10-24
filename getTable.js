@@ -10,7 +10,7 @@ function getTable(table_def) {
   //     ["3", "Kaushik", "23", "Kota", "2000.00"],
   //     ["4", "Chaitali", "25", "Mumbai", "6500.00"],
   //     ["5", "Hardik", "27", "Bhopal", "8500.00"],
-  //     ["6", "Komal", "22", "MP", "4500"]
+  //     ["6", "Komal", "22", "MP", "4500.00"]
   //   ]
   // };
 
@@ -35,8 +35,6 @@ function getTable(table_def) {
     })
   });
 
-  console.log(header_sizes);
-
   //4. Write a method that builds the table around the data
 
   function padToLength(string, length) {
@@ -46,16 +44,28 @@ function getTable(table_def) {
       padded_string += " ";
     return padded_string;
   }
+  // function getBorder() {
+  //   let sum_header = 0;
+  //   header_sizes.forEach(item => sum_header += item);
+  //   var header_top = "";
+  //   for (var i = 0; i < sum_header; i++) {
+  //     header_top += "−";
+  //   }
+  //   for (var i = 0; i < header.length + 1; i++) {
+  //     header_top += "−";
+  //   }
+  //   return header_top;
+  // }
+  
   function getBorder() {
-    let sum_header = 0;
-    header_sizes.forEach(item => sum_header += item);
-    var header_top = "";
-    for (var i = 0; i < sum_header; i++) {
-      header_top += "−";
-    }
-    for (var i = 0; i < header.length + 1; i++) {
-      header_top += "−";
-    }
+    let header_top = "+";
+    header.forEach((item, i) => {
+      let length = padToLength(item, header_sizes[i]).length;
+      for (var i = 0; i < length; i++) {
+        header_top += "−"; 
+      }
+      header_top += "+";
+    });
     return header_top;
   }
 
@@ -89,6 +99,5 @@ function getTable(table_def) {
   }
   table += border + "\n";
 
-  console.log(table);
   return table;
 }
