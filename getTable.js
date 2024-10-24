@@ -44,18 +44,6 @@ function getTable(table_def) {
       padded_string += " ";
     return padded_string;
   }
-  // function getBorder() {
-  //   let sum_header = 0;
-  //   header_sizes.forEach(item => sum_header += item);
-  //   var header_top = "";
-  //   for (var i = 0; i < sum_header; i++) {
-  //     header_top += "−";
-  //   }
-  //   for (var i = 0; i < header.length + 1; i++) {
-  //     header_top += "−";
-  //   }
-  //   return header_top;
-  // }
   
   function getBorder() {
     let header_top = "+";
